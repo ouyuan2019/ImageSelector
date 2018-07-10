@@ -2,8 +2,10 @@ package com.ozy.imageselector;
 
 import android.os.Environment;
 
+import com.ozy.imageselector.loader.ImageLoader;
 import com.ozy.imageselector.utils.FileUtils;
 
+import java.io.File;
 import java.io.Serializable;
 
 public class ImageSelectorConfig implements Serializable {
@@ -39,9 +41,12 @@ public class ImageSelectorConfig implements Serializable {
     public int outputX = 500;
     public int outputY = 500;
 
+    public File cacheFile;
+
     public ImageSelectorConfig(Builder builder) {
         this.imageLoader = builder.imageLoader;
         this.maxNum = builder.maxNum;
+        this.needCamera = builder.needCamera;
     }
 
 
@@ -53,26 +58,27 @@ public class ImageSelectorConfig implements Serializable {
         private int aspectY = 1;
         private int outputX = 400;
         private int outputY = 400;
-        private String filePath;
+        private File filePath;
+        private boolean needCamera;
         private ImageLoader imageLoader;
 
 
-        public Builder setMaxNum(int maxNum) {
+        public Builder maxNum(int maxNum) {
             this.maxNum = maxNum;
             return this;
         }
 
-        public Builder setImageLoader(ImageLoader imageLoader) {
+        public Builder imageLoader(ImageLoader imageLoader) {
             this.imageLoader = imageLoader;
             return this;
         }
 
-        public Builder() {
-            if (FileUtils.isSdCardAvailable())
-                filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera";
-            else
-                filePath = Environment.getRootDirectory().getAbsolutePath() + "/Camera";
+        public Builder needCamera(boolean needCamera) {
+            this.needCamera = needCamera;
+            return this;
+        }
 
+        public Builder() {
         }
 
         public ImageSelectorConfig build() {

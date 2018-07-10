@@ -7,6 +7,9 @@ import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * @author yuyh.
@@ -14,82 +17,30 @@ import java.io.File;
  */
 public class FileUtils {
 
-    private static final String TAG = FileUtils.class.getSimpleName();
+    public static final String POSTFIX = ".JPEG";
+    public static final String APP_NAME = "ImageSelector";
+    public static final String CAMERA_PATH = "/" + APP_NAME + "/CameraImage/";
+    public static final String CROP_PATH = "/" + APP_NAME + "/CropImage/";
 
-    /**
-     * 创建根缓存目录
-     *
-     * @return
-     */
-    public static String createRootPath(Context context) {
-        String cacheRootPath = "";
-        if (isSdCardAvailable()) {
-            // /sdcard/Android/data/<application package>/cache
-            cacheRootPath = context.getExternalCacheDir().getPath();
-        } else {
-            // /data/data/<application package>/cache
-            cacheRootPath = context.getCacheDir().getPath();
-        }
-        return cacheRootPath;
+    public static File createCameraFile(Context context) {
+        return createMediaFile(context,CAMERA_PATH);
+    }
+    public static File createCropFile(Context context) {
+        return createMediaFile(context,CROP_PATH);
     }
 
-    public static boolean isSdCardAvailable() {
-        return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
-    }
+    private static File createMediaFile(Context context, String parentPath){
+        String state = Environment.getExternalStorageState();
+        File rootDir = state.equals(Environment.MEDIA_MOUNTED)? Environment.getExternalStorageDirectory():context.getCacheDir();
 
-    /**
-     * 递归创建文件夹
-     *
-     * @param dirPath
-     * @return 创建失败返回""
-     */
-    public static String createDir(String dirPath) {
-        try {
-            File file = new File(dirPath);
-            if (file.getParentFile().exists()) {
-                file.mkdir();
-                return file.getAbsolutePath();
-            } else {
-                createDir(file.getParentFile().getAbsolutePath());
-                file.mkdir();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return dirPath;
-    }
+        File folderDir = new File(rootDir.getAbsolutePath() + parentPath);
+        if (!folderDir.exists() && folderDir.mkdirs()){
 
-    /**
-     * 递归创建文件夹
-     *
-     * @param file
-     * @return 创建失败返回""
-     */
-    public static String createFile(File file) {
-        try {
-            if (file.getParentFile().exists()) {
-                file.createNewFile();
-                return file.getAbsolutePath();
-            } else {
-                createDir(file.getParentFile().getAbsolutePath());
-                file.createNewFile();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-        return "";
-    }
 
-    public static String getApplicationId(Context appContext) throws IllegalArgumentException {
-        ApplicationInfo applicationInfo = null;
-        try {
-            applicationInfo = appContext.getPackageManager().getApplicationInfo(appContext.getPackageName(), PackageManager.GET_META_DATA);
-            if (applicationInfo == null) {
-                throw new IllegalArgumentException(" get application info = null, has no meta data! ");
-            }
-            return applicationInfo.metaData.getString("APP_ID");
-        } catch (PackageManager.NameNotFoundException e) {
-            throw new IllegalArgumentException(" get application info error! ", e);
-        }
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.CHINA).format(new Date());
+        String fileName = APP_NAME + "_" + timeStamp + "";
+        File tmpFile = new File(folderDir, fileName + POSTFIX);
+        return tmpFile;
     }
 }

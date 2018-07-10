@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="green">#43c117</color>
+    <color name="green_70">#AD43c117</color>
     <color name="toolbar_color">#000000</color>
+    <color name="image_overlay">#20000000</color>
+    <color name="image_overlay2">#80000000</color>
+    <color name="divider_color">#dcdcdc</color>
 </resources>

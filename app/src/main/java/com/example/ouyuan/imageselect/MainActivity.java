@@ -1,13 +1,13 @@
 package com.example.ouyuan.imageselect;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.ozy.imageselector.ImageLoader;
+import com.bumptech.glide.Glide;
+import com.ozy.imageselector.loader.ImageLoader;
 import com.ozy.imageselector.ImageSelector;
 import com.ozy.imageselector.ImageSelectorConfig;
 
@@ -22,13 +22,18 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_open).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageSelectorConfig config = new ImageSelectorConfig.Builder().setImageLoader(new ImageLoader() {
+                ImageSelectorConfig config = new ImageSelectorConfig.Builder().imageLoader(new ImageLoader() {
                     @Override
-                    public void displayImage(Context mContext, String path, ImageView imageView) {
-                        imageView.setImageURI(Uri.fromFile(new File(path)));
+                    public void displayImage(Context context, String path, ImageView imageView) {
+                        Glide.with(context.getApplicationContext())
+                                .load(new File(path))
+                                .thumbnail(0.7f)
+                                .dontAnimate()
+                                .centerCrop()
+                                .into(imageView);
                     }
-                }).build();
-                ImageSelector.getInstance().setImageConfig(config).start(MainActivity.this,111);
+                }).needCamera(true).build();
+                ImageSelector.getInstance().setImageConfig(config).start(MainActivity.this, 111);
             }
         });
     }
