@@ -29,6 +29,7 @@ public class ImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public ImageAdapter(Context context, ImageSelectorConfig config) {
         this.mContext = context;
         this.mConfig = config;
+
     }
 
     private List<Image> mImageList = new ArrayList<>();
@@ -46,7 +47,7 @@ public class ImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             View view = LayoutInflater.from(mContext).inflate(R.layout.item_camera, parent, false);
             return new CameraHolder(view);
         } else {
-            View view = LayoutInflater.from(mContext).inflate(R.layout.item_image, parent, false);
+            View view = LayoutInflater.from(mContext).inflate(R.layout.item_img, parent, false);
             return new ImageHolder(view);
         }
     }
@@ -140,7 +141,7 @@ public class ImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         notifyDataSetChanged();
     }
 
-     class ImageHolder extends RecyclerView.ViewHolder {
+    static class ImageHolder extends RecyclerView.ViewHolder {
 
         private ImageView imageView;
         private ImageView ivCheck;
@@ -153,7 +154,7 @@ public class ImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     }
 
-     class CameraHolder extends RecyclerView.ViewHolder {
+    static class CameraHolder extends RecyclerView.ViewHolder {
         public CameraHolder(View itemView) {
             super(itemView);
         }
