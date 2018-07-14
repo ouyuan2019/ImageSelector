@@ -147,8 +147,8 @@ public class ImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         public ImageHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.iv_image);
-            ivCheck = (ImageView) itemView.findViewById(R.id.iv_check);
+            imageView = (ImageView) itemView.findViewById(R.id.imageselector_image);
+            ivCheck = (ImageView) itemView.findViewById(R.id.imageselector_check);
         }
 
     }
