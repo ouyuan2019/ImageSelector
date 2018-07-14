@@ -10,12 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.ozy.imageselector.ImageSelectorConfig;
 import com.ozy.imageselector.R;
 import com.ozy.imageselector.bean.Image;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
