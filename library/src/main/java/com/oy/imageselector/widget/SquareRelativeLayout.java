@@ -1,4 +1,4 @@
-package com.ozy.imageselector.widget;
+package com.oy.imageselector.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;

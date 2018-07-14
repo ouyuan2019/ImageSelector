@@ -1,6 +1,6 @@
-package com.ozy.imageselector;
+package com.oy.imageselector;
 
-import com.ozy.imageselector.loader.ImageLoader;
+import com.oy.imageselector.loader.ImageLoader;
 
 import java.io.File;
 import java.io.Serializable;

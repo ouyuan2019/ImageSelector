@@ -1,4 +1,4 @@
-package com.ozy.imageselector.loader;
+package com.oy.imageselector.loader;
 
 import android.content.Context;
 import android.widget.ImageView;

@@ -1,4 +1,4 @@
-package com.ozy.imageselector.widget;
+package com.oy.imageselector.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -15,10 +15,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.PopupWindow;
 
+import com.oy.imageselector.utils.UiUtils;
 import com.ozy.imageselector.R;
-import com.ozy.imageselector.adapter.ImageFolderAdapter;
-import com.ozy.imageselector.bean.Folder;
-import com.ozy.imageselector.utils.UiUtils;
+import com.oy.imageselector.adapter.ImageFolderAdapter;
+import com.oy.imageselector.bean.Folder;
 
 import java.lang.reflect.Method;
 import java.util.List;

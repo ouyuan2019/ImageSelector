@@ -1,4 +1,4 @@
-package com.ozy.imageselector.utils;
+package com.oy.imageselector.utils;
 
 import android.app.Activity;
 import android.content.Context;

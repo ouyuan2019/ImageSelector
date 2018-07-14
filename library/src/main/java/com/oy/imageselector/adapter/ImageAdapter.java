@@ -1,4 +1,4 @@
-package com.ozy.imageselector.adapter;
+package com.oy.imageselector.adapter;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.ozy.imageselector.ImageSelectorConfig;
+import com.oy.imageselector.ImageSelectorConfig;
+import com.oy.imageselector.bean.Image;
 import com.ozy.imageselector.R;
-import com.ozy.imageselector.bean.Image;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -140,20 +140,20 @@ public class ImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         notifyDataSetChanged();
     }
 
-    static class ImageHolder extends RecyclerView.ViewHolder {
+     class ImageHolder extends RecyclerView.ViewHolder {
 
         private ImageView imageView;
         private ImageView ivCheck;
 
         public ImageHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.imageselector_image);
-            ivCheck = (ImageView) itemView.findViewById(R.id.imageselector_check);
+            imageView = (ImageView) itemView.findViewById(R.id.iv_img);
+            ivCheck = (ImageView) itemView.findViewById(R.id.iv_select);
         }
 
     }
 
-    static class CameraHolder extends RecyclerView.ViewHolder {
+     class CameraHolder extends RecyclerView.ViewHolder {
         public CameraHolder(View itemView) {
             super(itemView);
         }

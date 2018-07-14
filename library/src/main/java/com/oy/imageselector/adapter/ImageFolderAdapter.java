@@ -1,4 +1,4 @@
-package com.ozy.imageselector.adapter;
+package com.oy.imageselector.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ozy.imageselector.ImageSelector;
+import com.oy.imageselector.ImageSelector;
 import com.ozy.imageselector.R;
-import com.ozy.imageselector.bean.Folder;
-import com.ozy.imageselector.bean.Image;
+import com.oy.imageselector.bean.Folder;
+import com.oy.imageselector.bean.Image;
 
 import java.util.ArrayList;
 import java.util.List;

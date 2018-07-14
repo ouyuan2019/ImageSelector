@@ -1,10 +1,10 @@
-package com.ozy.imageselector;
+package com.oy.imageselector;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 
-import com.ozy.imageselector.ui.ImageSelectorActivity;
+import com.oy.imageselector.ui.ImageSelectorActivity;
 
 public class ImageSelector {
 

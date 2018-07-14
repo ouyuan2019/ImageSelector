@@ -5,10 +5,7 @@
         android:allowBackup="true"
         android:supportsRtl="true">
 
-        <activity
-            android:name=".ui.ImageSelectorActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-          />
+
 
     </application>
 </manifest>

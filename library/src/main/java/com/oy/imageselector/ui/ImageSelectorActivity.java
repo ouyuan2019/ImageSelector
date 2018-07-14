@@ -1,4 +1,4 @@
-package com.ozy.imageselector.ui;
+package com.oy.imageselector.ui;
 
 import android.Manifest;
 import android.content.Intent;
@@ -19,18 +19,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ozy.imageselector.ImageSelector;
-import com.ozy.imageselector.ImageSelectorConfig;
+import com.oy.imageselector.utils.GridSpacingItemDecoration;
+import com.oy.imageselector.utils.UiUtils;
+import com.oy.imageselector.widget.FolderWindow;
+import com.oy.imageselector.ImageSelector;
+import com.oy.imageselector.ImageSelectorConfig;
 import com.ozy.imageselector.R;
-import com.ozy.imageselector.adapter.ImageAdapter;
-import com.ozy.imageselector.adapter.ImageFolderAdapter;
-import com.ozy.imageselector.bean.Folder;
-import com.ozy.imageselector.bean.Image;
-import com.ozy.imageselector.loader.LocalMediaLoader;
-import com.ozy.imageselector.utils.FileUtils;
-import com.ozy.imageselector.utils.GridSpacingItemDecoration;
-import com.ozy.imageselector.utils.UiUtils;
-import com.ozy.imageselector.widget.FolderWindow;
+import com.oy.imageselector.adapter.ImageAdapter;
+import com.oy.imageselector.adapter.ImageFolderAdapter;
+import com.oy.imageselector.bean.Folder;
+import com.oy.imageselector.bean.Image;
+import com.oy.imageselector.loader.LocalMediaLoader;
+import com.oy.imageselector.utils.FileUtils;
 
 import java.io.File;
 import java.io.Serializable;

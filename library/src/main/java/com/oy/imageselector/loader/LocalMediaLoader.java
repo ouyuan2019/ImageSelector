@@ -1,4 +1,4 @@
-package com.ozy.imageselector.loader;
+package com.oy.imageselector.loader;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 
-import com.ozy.imageselector.bean.Folder;
-import com.ozy.imageselector.bean.Image;
+import com.oy.imageselector.bean.Folder;
+import com.oy.imageselector.bean.Image;
 
 import java.io.File;
 import java.util.ArrayList;

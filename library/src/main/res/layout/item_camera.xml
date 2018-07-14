@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ozy.imageselector.widget.SquareRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.oy.imageselector.widget.SquareRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#393A3F"
@@ -21,4 +21,4 @@
         android:layout_marginTop="11dp"
         android:text="拍摄照片"
         android:textColor="#ffffff" />
-</com.ozy.imageselector.widget.SquareRelativeLayout>
+</com.oy.imageselector.widget.SquareRelativeLayout>

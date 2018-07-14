@@ -1,4 +1,4 @@
-package com.ozy.imageselector.bean;
+package com.oy.imageselector.bean;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.ozy.imageselector.utils;
+package com.oy.imageselector.utils;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
