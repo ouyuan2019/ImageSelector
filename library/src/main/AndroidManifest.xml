@@ -7,9 +7,8 @@
 
         <activity
             android:name=".ui.ImageSelectorActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:windowSoftInputMode="adjustPan" />
+          />
 
     </application>
 </manifest>
