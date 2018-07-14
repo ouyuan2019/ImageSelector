@@ -13,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -103,6 +104,7 @@ public class ImageSelectorActivity extends AppCompatActivity {
         mTvDone = (TextView) findViewById(R.id.tv_done);
         mTvPreview = (TextView) findViewById(R.id.tv_preview);
         mImageAdapter = new ImageAdapter(this, mConfig);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));
         mRecyclerView.setAdapter(mImageAdapter);
         mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(3, UiUtils.dip2px(this, 2), false));
         new LocalMediaLoader(this).loadAllMedia(new LocalMediaLoader.LocalMediaLoadListener() {

@@ -23,5 +23,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.0'
     testImplementation 'junit:junit:4.12'
     implementation project(':library')
+//    implementation 'com.github.ozy20:ImageSelector:1.0.3'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
+
 }

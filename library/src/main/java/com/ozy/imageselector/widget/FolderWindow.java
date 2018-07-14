@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -64,6 +65,7 @@ public class FolderWindow extends PopupWindow {
 
     private void initView() {
         mRecyclerView = (RecyclerView) mContentView.findViewById(R.id.recyclerview);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.addItemDecoration(new ItemDivider());
         mAdapter = new ImageFolderAdapter(mContext);
         mRecyclerView.setAdapter(mAdapter);
