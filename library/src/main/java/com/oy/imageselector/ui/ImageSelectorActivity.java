@@ -4,12 +4,14 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,6 +26,7 @@ import com.oy.imageselector.utils.UiUtils;
 import com.oy.imageselector.widget.FolderWindow;
 import com.oy.imageselector.ImageSelector;
 import com.oy.imageselector.ImageSelectorConfig;
+import com.ozy.imageselector.BuildConfig;
 import com.ozy.imageselector.R;
 import com.oy.imageselector.adapter.ImageAdapter;
 import com.oy.imageselector.adapter.ImageFolderAdapter;
@@ -100,7 +103,7 @@ public class ImageSelectorActivity extends AppCompatActivity {
         mTvDone = (TextView) findViewById(R.id.tv_done);
         mTvPreview = (TextView) findViewById(R.id.tv_preview);
         mImageAdapter = new ImageAdapter(this, mConfig);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         mRecyclerView.setAdapter(mImageAdapter);
         mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(3, UiUtils.dip2px(this, 2), false));
         new LocalMediaLoader(this).loadAllMedia(new LocalMediaLoader.LocalMediaLoadListener() {
@@ -219,8 +222,18 @@ public class ImageSelectorActivity extends AppCompatActivity {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (cameraIntent.resolveActivity(getPackageManager()) != null) {
             File cameraFile = FileUtils.createCameraFile(this);
+
+            Uri imageUri;
+            String authority = getPackageName() + ".provider";
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+                //通过FileProvider创建一个content类型的Uri
+                imageUri = FileProvider.getUriForFile(this, authority, cameraFile);
+            } else {
+                imageUri = Uri.fromFile(cameraFile);
+            }
+
             mCameraPath = cameraFile.getAbsolutePath();
-            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(cameraFile));
+            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
             startActivityForResult(cameraIntent, REQUEST_CAMERA);
         }
     }

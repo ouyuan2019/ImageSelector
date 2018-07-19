@@ -5,7 +5,18 @@
         android:allowBackup="true"
         android:supportsRtl="true">
 
+        <activity
+            android:name="com.oy.imageselector.ui.ImageSelectorActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
-
+        <provider
+            android:name="com.oy.imageselector.utils.PictureFileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
     </application>
 </manifest>

@@ -8,11 +8,11 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.oy.imageselector.ImageSelector;
+import com.oy.imageselector.ImageSelectorConfig;
+import com.oy.imageselector.loader.ImageLoader;
 
 import java.io.File;
-import com.ozy.imageselector.loader.ImageLoader;
-import com.ozy.imageselector.ImageSelector;
-import com.ozy.imageselector.ImageSelectorConfig;
 
 public class MainActivity extends AppCompatActivity {
 

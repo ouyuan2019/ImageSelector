@@ -1,6 +1,8 @@
 package com.oy.imageselector.utils;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Environment;
 
 import java.io.File;
@@ -39,5 +41,18 @@ public class FileUtils {
         String fileName = APP_NAME + "_" + timeStamp + "";
         File tmpFile = new File(folderDir, fileName + POSTFIX);
         return tmpFile;
+    }
+
+    public static String getApplicationId(Context appContext) throws IllegalArgumentException {
+        ApplicationInfo applicationInfo = null;
+        try {
+            applicationInfo = appContext.getPackageManager().getApplicationInfo(appContext.getPackageName(), PackageManager.GET_META_DATA);
+            if (applicationInfo == null) {
+                throw new IllegalArgumentException(" get application info = null, has no meta data! ");
+            }
+            return applicationInfo.metaData.getString("APP_ID");
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new IllegalArgumentException(" get application info error! ", e);
+        }
     }
 }
