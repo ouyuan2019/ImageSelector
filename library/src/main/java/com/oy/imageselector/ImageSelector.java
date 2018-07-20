@@ -4,7 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 
+import com.oy.imageselector.ui.ImagePreivewActivity;
 import com.oy.imageselector.ui.ImageSelectorActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ImageSelector {
 
@@ -23,9 +27,9 @@ public class ImageSelector {
         return instance;
     }
 
-    public ImageSelector setImageConfig(ImageSelectorConfig config){
-            this.mImageSelectorConfig = config;
-            return this;
+    public ImageSelector setImageConfig(ImageSelectorConfig config) {
+        this.mImageSelectorConfig = config;
+        return this;
     }
 
     public ImageSelectorConfig getImageSelectorConfig() {
@@ -40,5 +44,12 @@ public class ImageSelector {
     public void start(Fragment fragment, int requestCode) {
         Intent intent = new Intent(fragment.getActivity(), ImageSelectorActivity.class);
         fragment.startActivityForResult(intent, requestCode);
+    }
+
+
+    public void preview(Activity activity, List<String> selectedList, int requestCode) {
+        Intent intent = new Intent(activity, ImagePreivewActivity.class);
+        intent.putExtra(ImagePreivewActivity.EXTRA_PREVIEW_SELECT_LIST, (ArrayList) selectedList);
+        activity.startActivityForResult(intent, requestCode);
     }
 }

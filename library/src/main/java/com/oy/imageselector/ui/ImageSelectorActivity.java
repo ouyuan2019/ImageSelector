@@ -137,7 +137,6 @@ public class ImageSelectorActivity extends AppCompatActivity {
                     mTvPreview.setText(getString(R.string.preview_text));
                 }
             }
-
             @Override
             public void onTakePhoto() {
                 //6.0权限

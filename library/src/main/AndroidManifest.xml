@@ -18,5 +18,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
         </provider>
+
+        <activity android:name="com.oy.imageselector.ui.ImagePreivewActivity"
+          />
     </application>
 </manifest>
