@@ -28,10 +28,8 @@ public class ImagePreivewActivity extends AppCompatActivity {
 
     private ImageView mIvDelete;
 
-    private ImageView mIvBack;
 
     private ViewPager mViewPager;
-    private TextView mTvTitle;
     private Toolbar mToolbar;
 
     private List<String> mSelectedImageList = new ArrayList();
@@ -54,10 +52,13 @@ public class ImagePreivewActivity extends AppCompatActivity {
         mPosition = getIntent().getIntExtra(EXTRA_PREVIEW_SELECT_POSITION, 0);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mIvDelete = (ImageView) findViewById(R.id.btn_del);
-        mIvBack = (ImageView) findViewById(R.id.btn_back);
-        mTvTitle = (TextView) findViewById(R.id.txt_title);
         mViewPager = (ViewPager) findViewById(R.id.previewViewPager);
         mViewPager.setAdapter(mAdapter);
+        mToolbar.setTitle(mPosition + 1 + "/" + mSelectedImageList.size());
+        setSupportActionBar(mToolbar);
+
+        mToolbar.setNavigationIcon(R.drawable.ic_back);
+
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -65,7 +66,7 @@ public class ImagePreivewActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                mTvTitle.setText(position + 1 + "/" + mSelectedImageList.size());
+                mToolbar.setTitle(position + 1 + "/" + mSelectedImageList.size());
                 mPosition = position;
             }
 
@@ -74,12 +75,13 @@ public class ImagePreivewActivity extends AppCompatActivity {
             }
         });
 
-        mIvBack.setOnClickListener(new View.OnClickListener() {
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                finish();
+            public void onClick(View v) {
+                onDone();
             }
         });
+
         mIvDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -140,7 +142,7 @@ public class ImagePreivewActivity extends AppCompatActivity {
 
                 if (mSelectedImageList.size() > 0) {
                     mAdapter.notifyDataSetChanged();
-                    mTvTitle.setText((mPosition + 1) + "/" + mSelectedImageList.size());
+                    mToolbar.setTitle((mPosition + 1) + "/" + mSelectedImageList.size());
                 } else {
                     onBackPressed();
                 }

@@ -20,6 +20,8 @@
         </provider>
 
         <activity android:name="com.oy.imageselector.ui.ImagePreivewActivity"
-          />
+
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
     </application>
 </manifest>
