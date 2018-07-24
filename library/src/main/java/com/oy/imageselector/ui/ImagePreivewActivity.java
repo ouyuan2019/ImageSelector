@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bm.library.PhotoView;
 import com.oy.imageselector.ImageSelector;
 import com.oy.imageselector.ImageSelectorConfig;
 import com.ozy.imageselector.R;
@@ -116,7 +117,8 @@ public class ImagePreivewActivity extends AppCompatActivity {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             View contentView = LayoutInflater.from(ImagePreivewActivity.this).inflate(R.layout.fragment_image_preview, container, false);
-            final ImageView imageView = (ImageView) contentView.findViewById(R.id.preview_image);
+            final PhotoView imageView = (PhotoView) contentView.findViewById(R.id.preview_image);
+            imageView.enable();
             mConfig.imageLoader.displayImage(ImagePreivewActivity.this, mSelectedImageList.get(position), imageView);
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
