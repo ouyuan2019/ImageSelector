@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 Multiselect();
             }
         });
+
 
     }
 
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                             .centerCrop()
                             .into(imageView);
                 }
-            }).needCamera(true).build();
+            }).needCamera(false).build();
 
             ImageSelector.getInstance().setImageConfig(config).preview(MainActivity.this, imageList,111);
         }

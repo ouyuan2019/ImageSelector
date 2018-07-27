@@ -83,6 +83,12 @@ public class ImagePreivewActivity extends AppCompatActivity {
             }
         });
 
+        if(mConfig.needDelete){
+            mIvDelete.setVisibility(View.VISIBLE);
+        }else{
+            mIvDelete.setVisibility(View.GONE);
+        }
+
         mIvDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

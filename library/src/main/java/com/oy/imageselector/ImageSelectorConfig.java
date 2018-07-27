@@ -28,7 +28,7 @@ public class ImageSelectorConfig implements Serializable {
     public boolean needCamera;
 
     public ImageLoader imageLoader;
-
+    public boolean needDelete;
 
     /**
      * 裁剪输出大小
@@ -44,6 +44,7 @@ public class ImageSelectorConfig implements Serializable {
         this.imageLoader = builder.imageLoader;
         this.maxNum = builder.maxNum;
         this.needCamera = builder.needCamera;
+        this.needDelete = builder.needDelete;
     }
 
 
@@ -58,7 +59,13 @@ public class ImageSelectorConfig implements Serializable {
         private File filePath;
         private boolean needCamera;
         private ImageLoader imageLoader;
+        private boolean needDelete;
 
+
+        public Builder setNeedDelete(boolean needDelete) {
+            this.needDelete = needDelete;
+            return this;
+        }
 
         public Builder maxNum(int maxNum) {
             this.maxNum = maxNum;
